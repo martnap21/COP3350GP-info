@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An overview of the COP 3350 DNS and Apache web lab.">
+  <title>Lab Overview | COP 3350</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="course">COP 3350 · Systems Administration &amp; Programming</p>
+      <h1>Lab Overview</h1>
+      <p class="intro">Follow a request from a Linux client to one of two websites on the same Apache server.</p>
+    </header>
+
+    <section aria-labelledby="network">
+      <h2 id="network">How the request reaches a site</h2>
+      <ol class="request-flow">
+        <li><strong>Resolve the hostname.</strong> The client asks BIND for the IP address associated with the requested site. Both site names point to the same web server.</li>
+        <li><strong>Connect over HTTPS.</strong> The browser opens a TLS connection. If the request starts over HTTP, Apache redirects it to HTTPS.</li>
+        <li><strong>Serve the selected site.</strong> Apache uses the hostname to select a virtual host. It serves this overview as HTML and runs PHP for the clock.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="websites">
+      <h2 id="websites">Websites</h2>
+      <dl>
+        <div>
+          <dt>Lab Overview</dt>
+          <dd>Apache serves the same page content on each request.</dd>
+        </div>
+        <div>
+          <dt>Server Clock</dt>
+          <dd>PHP reads the server clock on each request and displays the date and time in US Eastern Time.</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+</body>
+</html>
